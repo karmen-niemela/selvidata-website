@@ -1,0 +1,56 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+---
+
+<BaseLayout title="Services" description="Data engineering, analytics, and visualization consulting services.">
+  <section class="py-8">
+    <p class="mb-4 font-mono text-sm text-accent">Services</p>
+    <h1 class="mb-4 text-3xl font-light sm:text-4xl">How I can help</h1>
+    <p class="mb-12 max-w-2xl text-text-muted leading-relaxed">
+      I offer end-to-end data consulting — from building the infrastructure
+      that collects and processes your data, to the dashboards and reports
+      that make it useful.
+    </p>
+
+    <div class="grid gap-6 sm:grid-cols-2">
+      <ServiceCard
+        title="Data Engineering"
+        description="Design and build robust data pipelines, ETL/ELT workflows, and data warehouses. I work with SQL, Python, and modern data stack tools to ensure your data flows reliably from source to insight."
+      />
+      <ServiceCard
+        title="Analytics & Business Intelligence"
+        description="Turn your data into actionable dashboards and reports. I help teams define metrics, build self-serve analytics, and create reporting systems that people actually use."
+      />
+      <ServiceCard
+        title="Data Visualization"
+        description="Create interactive visualizations with Plotly, Grafana, and custom solutions. From real-time monitoring dashboards to publication-ready charts."
+      />
+      <ServiceCard
+        title="Data Strategy & Architecture"
+        description="Assess your current data landscape and build a roadmap for growth. I help teams choose the right tools, define data models, and establish best practices."
+      />
+      <ServiceCard
+        title="Database Design & Optimization"
+        description="Design efficient database schemas, optimize slow queries, and establish indexing strategies that scale with your data."
+      />
+      <ServiceCard
+        title="Automation & Monitoring"
+        description="Set up automated data quality checks, alerting systems, and scheduled reporting. Catch issues before they become problems."
+      />
+    </div>
+
+    <div class="mt-16 rounded-lg border border-border bg-bg-secondary p-8 text-center">
+      <h2 class="mb-3 text-xl font-light">Have a project in mind?</h2>
+      <p class="mb-6 text-text-muted">
+        I'd love to hear about what you're working on and how I can help.
+      </p>
+      <a
+        href="/contact"
+        class="inline-block rounded-lg bg-accent px-6 py-3 font-medium text-bg transition-colors hover:bg-accent-hover"
+      >
+        Get in Touch
+      </a>
+    </div>
+  </section>
+</BaseLayout>

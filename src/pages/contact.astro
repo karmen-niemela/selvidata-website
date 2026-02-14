@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactForm from '../components/ContactForm.astro';
+---
+
+<BaseLayout title="Contact" description="Get in touch with Selvi Data Consulting.">
+  <section class="py-8">
+    <p class="mb-4 font-mono text-sm text-accent">Contact</p>
+    <h1 class="mb-4 text-3xl font-light sm:text-4xl">Let's talk</h1>
+    <p class="mb-10 max-w-2xl text-text-muted leading-relaxed">
+      Have a data project in mind? Send me a message and I'll get back to
+      you within a day or two.
+    </p>
+
+    <div class="grid gap-12 lg:grid-cols-5">
+      <div class="lg:col-span-3">
+        <ContactForm />
+      </div>
+      <div class="lg:col-span-2">
+        <div class="rounded-lg border border-border bg-bg-secondary p-6">
+          <h3 class="mb-4 font-mono text-sm text-accent">Direct contact</h3>
+          <div class="space-y-4 text-sm text-text-muted">
+            <div>
+              <p class="mb-1 text-text">Email</p>
+              <a href="mailto:karmen@selvidata.com" class="transition-colors hover:text-accent">
+                karmen@selvidata.com
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

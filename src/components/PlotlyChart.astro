@@ -1,0 +1,80 @@
+---
+interface Props {
+  data: object[];
+  layout?: object;
+  config?: object;
+  class?: string;
+}
+
+const { data, layout = {}, config = {}, class: className = '' } = Astro.props;
+
+// Layout colors are resolved at runtime via getComputedStyle in the client script
+const defaultLayout = {
+  paper_bgcolor: 'transparent',
+  margin: { t: 40, r: 20, b: 40, l: 50 },
+  ...layout,
+};
+
+const defaultConfig = {
+  responsive: true,
+  displayModeBar: false,
+  ...config,
+};
+
+const chartId = `plotly-${Math.random().toString(36).slice(2, 9)}`;
+---
+
+<div
+  id={chartId}
+  class:list={['w-full rounded-lg border border-border', className]}
+  style="min-height: 350px;"
+  data-chart-data={JSON.stringify(data)}
+  data-chart-layout={JSON.stringify(defaultLayout)}
+  data-chart-config={JSON.stringify(defaultConfig)}
+></div>
+
+<script>
+  async function initChart(container: HTMLElement) {
+    // @ts-ignore - Plotly loaded from CDN
+    if (!window.Plotly) {
+      const script = document.createElement('script');
+      script.src = 'https://cdn.plot.ly/plotly-2.35.2.min.js';
+      script.async = true;
+      await new Promise<void>((resolve, reject) => {
+        script.onload = () => resolve();
+        script.onerror = reject;
+        document.head.appendChild(script);
+      });
+    }
+
+    const data = JSON.parse(container.dataset.chartData || '[]');
+    const layout = JSON.parse(container.dataset.chartLayout || '{}');
+    const config = JSON.parse(container.dataset.chartConfig || '{}');
+
+    // Resolve theme colors from CSS variables
+    const styles = getComputedStyle(document.documentElement);
+    const themeColors = {
+      plot_bgcolor: styles.getPropertyValue('--color-bg-secondary').trim(),
+      font: { color: styles.getPropertyValue('--color-text-muted').trim(), family: 'Inter, sans-serif' },
+      xaxis: { gridcolor: styles.getPropertyValue('--color-border').trim(), linecolor: styles.getPropertyValue('--color-border').trim(), ...layout.xaxis },
+      yaxis: { gridcolor: styles.getPropertyValue('--color-border').trim(), linecolor: styles.getPropertyValue('--color-border').trim(), ...layout.yaxis },
+    };
+
+    // @ts-ignore
+    window.Plotly.newPlot(container, data, { ...themeColors, ...layout }, config);
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          initChart(entry.target as HTMLElement);
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
+
+  document.querySelectorAll('[id^="plotly-"]').forEach((el) => observer.observe(el));
+</script>

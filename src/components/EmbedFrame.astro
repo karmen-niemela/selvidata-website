@@ -1,0 +1,24 @@
+---
+interface Props {
+  src: string;
+  title?: string;
+  aspectRatio?: '16/9' | '4/3' | '1/1' | '21/9';
+  class?: string;
+}
+
+const { src, title = 'Embedded content', aspectRatio = '16/9', class: className = '' } = Astro.props;
+---
+
+<div
+  class:list={['w-full overflow-hidden rounded-lg border border-border', className]}
+  style={`aspect-ratio: ${aspectRatio};`}
+>
+  <iframe
+    src={src}
+    title={title}
+    class="h-full w-full bg-bg-secondary"
+    loading="lazy"
+    allowfullscreen
+    sandbox="allow-scripts allow-same-origin allow-popups"
+  ></iframe>
+</div>

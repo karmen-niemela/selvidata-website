@@ -1,0 +1,58 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+---
+
+<BaseLayout title="Home">
+  <!-- Hero -->
+  <section class="py-16 sm:py-24">
+    <p class="mb-4 font-mono text-sm text-accent">Selvi Data Consulting</p>
+    <h1 class="mb-6 text-4xl font-light leading-tight sm:text-5xl lg:text-6xl">
+      Turning data into<br />
+      <span class="text-text-muted">clear decisions.</span>
+    </h1>
+    <p class="mb-10 max-w-2xl text-lg leading-relaxed text-text-muted">
+      I help businesses build data pipelines, create insightful dashboards,
+      and make sense of their data. From raw data to actionable insights.
+    </p>
+    <div class="flex flex-wrap gap-4">
+      <a
+        href="/contact"
+        class="rounded-lg bg-accent px-6 py-3 font-medium text-bg transition-colors hover:bg-accent-hover"
+      >
+        Get in Touch
+      </a>
+      <a
+        href="/services"
+        class="rounded-lg border border-border px-6 py-3 text-text-muted transition-colors hover:border-text-muted hover:text-text"
+      >
+        View Services
+      </a>
+    </div>
+  </section>
+
+  <!-- Services preview -->
+  <section class="py-16">
+    <h2 class="mb-2 font-mono text-sm text-accent">What I Do</h2>
+    <p class="mb-8 text-2xl font-light">Core services</p>
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <ServiceCard
+        title="Data Engineering"
+        description="Build and maintain reliable data pipelines, ETL processes, and data infrastructure."
+      />
+      <ServiceCard
+        title="Analytics & BI"
+        description="Transform raw data into dashboards and reports that drive business decisions."
+      />
+      <ServiceCard
+        title="Data Visualization"
+        description="Create interactive charts and dashboards using Plotly, Grafana, and modern BI tools."
+      />
+    </div>
+    <div class="mt-8">
+      <a href="/services" class="font-mono text-sm text-text-muted transition-colors hover:text-accent">
+        All services &rarr;
+      </a>
+    </div>
+  </section>
+</BaseLayout>

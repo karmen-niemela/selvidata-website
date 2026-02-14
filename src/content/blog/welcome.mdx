@@ -1,0 +1,59 @@
+---
+title: "Welcome to Selvi Data Consulting"
+description: "An introduction to what I do and what you'll find on this blog — data engineering, analytics, and visualization."
+pubDate: 2026-02-14
+tags: ["update", "data"]
+---
+
+import PlotlyChart from '../../components/PlotlyChart.astro';
+import EmbedFrame from '../../components/EmbedFrame.astro';
+
+## Hello!
+
+Welcome to the Selvi Data Consulting blog. This is where I'll share insights about data engineering, analytics best practices, and interesting visualization techniques.
+
+I work with businesses to help them get more value out of their data — whether that's building pipelines, designing dashboards, or figuring out the right analytics strategy.
+
+## What to expect
+
+Here's what you'll find on this blog:
+
+- **Data engineering** deep dives — pipeline patterns, ETL best practices, and tool comparisons
+- **Analytics** guides — metrics design, dashboard patterns, and BI strategies
+- **Visualization** showcases — interactive charts, monitoring dashboards, and creative data presentations
+
+## Example: Interactive chart
+
+Here's a quick example of the kind of interactive content I can embed in posts — a simple Plotly chart rendered right in the browser:
+
+<PlotlyChart
+  data={[
+    {
+      x: ['Q1', 'Q2', 'Q3', 'Q4'],
+      y: [120, 185, 240, 310],
+      type: 'bar',
+      marker: { color: '#e5c07b' },
+      name: 'Revenue',
+    },
+  ]}
+  layout={{
+    title: { text: 'Quarterly Growth', font: { size: 16 } },
+    height: 350,
+  }}
+/>
+
+## Example: External embed
+
+And here's how an external dashboard (like Grafana or Google Data Studio) can be embedded:
+
+<EmbedFrame
+  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.2!2d-73.98!3d40.75!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1"
+  title="Sample embedded content"
+  aspectRatio="16/9"
+/>
+
+*Replace the URL above with any Grafana dashboard, Google Data Studio report, or other embeddable content.*
+
+---
+
+Stay tuned for more posts. If you have a data project you'd like to discuss, [get in touch](/contact).

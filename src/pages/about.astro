@@ -1,0 +1,96 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+---
+
+<BaseLayout title="About" description="About Selvi Data Consulting — a hands-on data professional with a passion for business impact.">
+  <section class="mx-auto max-w-3xl py-8">
+    <p class="mb-4 font-mono text-sm text-accent">About</p>
+    <h1 class="mb-6 text-3xl font-light sm:text-4xl">About Me</h1>
+
+    <!-- Motto -->
+    <p class="mb-10 text-xl font-light leading-snug text-text">
+      I am a hands-on data professional with a passion for business impact.
+    </p>
+
+    <!-- Credentials -->
+    <ul class="mb-12 grid gap-3 sm:grid-cols-2">
+      <li class="flex items-center gap-3 text-text-muted">
+        <span class="text-accent">&#10003;</span> M.Sc. Machine Learning
+      </li>
+      <li class="flex items-center gap-3 text-text-muted">
+        <span class="text-accent">&#10003;</span> 10 years as Data Analyst and Data Scientist
+      </li>
+      <li class="flex items-center gap-3 text-text-muted">
+        <span class="text-accent">&#10003;</span> Extensive technical toolkit
+      </li>
+      <li class="flex items-center gap-3 text-text-muted">
+        <span class="text-accent">&#10003;</span> Available for remote work worldwide
+      </li>
+    </ul>
+
+    <!-- Bio -->
+    <div class="space-y-5 text-text-muted leading-relaxed">
+      <p>
+        I'm a senior data scientist with extensive experience helping product teams, R&D groups, and business units make better decisions with data. Through a combination of strong technical skills (Python, SQL, machine learning, experimentation, data engineering) and stakeholder communication, I specialize in uncovering insights from complex datasets and turning them into actionable strategies.
+      </p>
+
+      <p>
+        I've worked with companies ranging from startups to global enterprises like Adobe, leading projects across product analytics, machine learning, and process optimization. Whether it's identifying the drivers of product performance, building models to accelerate R&D, or delivering concise dashboards and A/B test results, I focus on business impact — not just code.
+      </p>
+
+      <p>
+        I'm available for freelance or contract work and can jump in to lead standalone projects, extend your team's capacity, or advise on your data strategy.
+      </p>
+
+      <p>
+        Let's talk if you're looking for a reliable, senior-level data scientist who can hit the ground running.
+      </p>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="py-12">
+    <p class="mb-2 font-mono text-sm text-text-muted">What I am best at</p>
+    <h2 class="mb-8 text-2xl font-light">Selvi Data Services</h2>
+
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <ServiceCard
+        title="Custom Analysis"
+        description="Completing analysis projects from business needs to project delivery"
+      />
+      <ServiceCard
+        title="Data Visualization"
+        description="Delivering one-off data visualizations or continuously refreshed dashboards"
+      />
+      <ServiceCard
+        title="Data System Initialization"
+        description="Configuring first data collection pipeline from inputs to insights"
+      />
+      <ServiceCard
+        title="Data Flows"
+        description="Designing database schemas and configure data transformations"
+      />
+      <ServiceCard
+        title="Consulting"
+        description="Don't know where to start? Schedule a call and let's discuss how to meet your business challenges"
+      />
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-12">
+    <div class="rounded-lg border border-border bg-bg-secondary p-8 text-center">
+      <p class="mb-3 text-xl font-light">Get insights now.</p>
+      <p class="mb-6 text-text-muted">
+        Build data flows and dashboards<br />to help your business grow.
+      </p>
+      <a
+        href="/contact"
+        class="inline-block rounded-lg bg-accent px-6 py-3 font-medium text-bg transition-colors hover:bg-accent-hover"
+      >
+        Start Now
+      </a>
+    </div>
+  </section>
+</BaseLayout>
