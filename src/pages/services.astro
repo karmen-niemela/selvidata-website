@@ -3,47 +3,62 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import ServiceCard from '../components/ServiceCard.astro';
 ---
 
-<BaseLayout title="Services" description="Data engineering, analytics, and visualization consulting services.">
+<BaseLayout title="Services" description="Data analytics, visualization, and strategy consulting for startups and growing businesses.">
   <section class="py-8">
     <p class="mb-4 font-mono text-sm text-accent">Services</p>
     <h1 class="mb-4 text-3xl font-light sm:text-4xl">How I can help</h1>
     <p class="mb-12 max-w-2xl text-text-muted leading-relaxed">
-      I offer end-to-end data consulting — from building the infrastructure
-      that collects and processes your data, to the dashboards and reports
-      that make it useful.
+      I work with startups and early-stage companies that know their data matters
+      but don't have the team to make sense of it yet. I also take on fixed-term
+      consulting engagements, embedding with your existing team as a flexible
+      data specialist for as long as you need.
     </p>
 
     <div class="grid gap-6 sm:grid-cols-2">
       <ServiceCard
-        title="Data Engineering"
-        description="Design and build robust data pipelines, ETL/ELT workflows, and data warehouses. I work with SQL, Python, and modern data stack tools to ensure your data flows reliably from source to insight."
-      />
-      <ServiceCard
         title="Analytics & Business Intelligence"
-        description="Turn your data into actionable dashboards and reports. I help teams define metrics, build self-serve analytics, and create reporting systems that people actually use."
+        description="Define the metrics that matter, build the required infrastructure, and set up self-serve reporting — so you're making decisions from data, not guesswork."
       />
       <ServiceCard
         title="Data Visualization"
-        description="Create interactive visualizations with Plotly, Grafana, and custom solutions. From real-time monitoring dashboards to publication-ready charts."
-      />
-      <ServiceCard
-        title="Data Strategy & Architecture"
-        description="Assess your current data landscape and build a roadmap for growth. I help teams choose the right tools, define data models, and establish best practices."
+        description="Interactive charts, monitoring dashboards, and clear visual storytelling using the right dashboard tool for the job. Make your data easy to understand at a glance."
       />
       <ServiceCard
         title="Database Design & Optimization"
-        description="Design efficient database schemas, optimize slow queries, and establish indexing strategies that scale with your data."
+        description="Get your data model right from the start — or fix the one that's slowing you down. Schema design, query optimization, and indexing strategies that scale."
       />
       <ServiceCard
-        title="Automation & Monitoring"
-        description="Set up automated data quality checks, alerting systems, and scheduled reporting. Catch issues before they become problems."
+        title="Data Strategy & Architecture"
+        description="Not sure where to start? I'll assess what you have, recommend the right tools, and build a practical data roadmap that fits your stage and budget."
       />
     </div>
 
+    <!-- Engagement models -->
+    <div class="mt-16 grid gap-6 sm:grid-cols-2">
+      <div class="rounded-lg border border-border bg-bg-secondary p-8">
+        <p class="mb-2 font-mono text-sm text-accent">For startups</p>
+        <h3 class="mb-3 text-lg font-medium">Project-based work</h3>
+        <p class="text-sm leading-relaxed text-text-muted">
+          You have a specific data challenge — your first dashboard, a messy database,
+          or a reporting system that needs to exist. I'll scope it, build it,
+          and hand it off so your team can run with it.
+        </p>
+      </div>
+      <div class="rounded-lg border border-border bg-bg-secondary p-8">
+        <p class="mb-2 font-mono text-sm text-accent">For growing teams</p>
+        <h3 class="mb-3 text-lg font-medium">Fixed-term consulting</h3>
+        <p class="text-sm leading-relaxed text-text-muted">
+          Need a senior data person but not ready for a full-time hire? I'll join
+          your team on a contract basis — leading projects, mentoring junior
+          analysts, or filling a gap while you hire.
+        </p>
+      </div>
+    </div>
+
     <div class="mt-16 rounded-lg border border-border bg-bg-secondary p-8 text-center">
-      <h2 class="mb-3 text-xl font-light">Have a project in mind?</h2>
+      <h2 class="mb-3 text-xl font-light">Let's figure out what you need</h2>
       <p class="mb-6 text-text-muted">
-        I'd love to hear about what you're working on and how I can help.
+        Every company's data situation is different. Tell me where you are and I'll suggest how I can help.
       </p>
       <a
         href="/contact"

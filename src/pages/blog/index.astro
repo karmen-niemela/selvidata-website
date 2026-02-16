@@ -13,19 +13,26 @@ const posts = (await getCollection('blog'))
     <p class="mb-4 font-mono text-sm text-accent">Blog</p>
     <h1 class="mb-4 text-3xl font-light sm:text-4xl">Writing</h1>
     <p class="mb-10 text-text-muted leading-relaxed">
-      Thoughts on data engineering, analytics, and building better data systems.
+      Thoughts on data science, analytics, and building better data systems.
     </p>
+
+    <div class="mb-6 flex gap-2" id="category-filters">
+      <button data-filter="all" class="rounded-full border border-accent bg-accent/10 px-4 py-1.5 font-mono text-xs text-accent transition-colors">All</button>
+      <button data-filter="technical" class="rounded-full border border-border px-4 py-1.5 font-mono text-xs text-text-muted transition-colors hover:border-accent/30">Technical</button>
+      <button data-filter="business" class="rounded-full border border-border px-4 py-1.5 font-mono text-xs text-text-muted transition-colors hover:border-accent/30">Business</button>
+    </div>
 
     {posts.length === 0 ? (
       <p class="text-text-muted">No posts yet. Check back soon.</p>
     ) : (
-      <div class="grid gap-4">
+      <div class="grid gap-4" id="blog-grid">
         {posts.map((post) => (
           <BlogCard
             title={post.data.title}
             description={post.data.description}
             pubDate={post.data.pubDate}
             slug={post.id}
+            category={post.data.category}
             tags={post.data.tags}
           />
         ))}
@@ -33,3 +40,30 @@ const posts = (await getCollection('blog'))
     )}
   </section>
 </BaseLayout>
+
+<script>
+  const buttons = document.querySelectorAll<HTMLButtonElement>('#category-filters button');
+  const cards = document.querySelectorAll<HTMLElement>('#blog-grid > a');
+
+  const activeClass = 'border-accent bg-accent/10 text-accent';
+  const inactiveClass = 'border-border text-text-muted hover:border-accent/30';
+
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const filter = btn.dataset.filter!;
+
+      buttons.forEach((b) => {
+        b.className = `rounded-full border px-4 py-1.5 font-mono text-xs transition-colors ${inactiveClass}`;
+      });
+      btn.className = `rounded-full border px-4 py-1.5 font-mono text-xs transition-colors ${activeClass}`;
+
+      cards.forEach((card) => {
+        if (filter === 'all' || card.dataset.category === filter) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+</script>

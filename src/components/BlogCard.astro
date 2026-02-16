@@ -4,23 +4,32 @@ interface Props {
   description: string;
   pubDate: Date;
   slug: string;
+  category: 'technical' | 'business';
   tags?: string[];
 }
 
-const { title, description, pubDate, slug, tags } = Astro.props;
+const { title, description, pubDate, slug, category, tags } = Astro.props;
 
 const formattedDate = pubDate.toLocaleDateString('en-US', {
   year: 'numeric',
   month: 'short',
   day: 'numeric',
 });
+
+const categoryLabel = category === 'technical' ? 'Technical' : 'Business';
+const categoryClass = category === 'technical'
+  ? 'border-blue-400/40 text-blue-400'
+  : 'border-emerald-400/40 text-emerald-400';
 ---
 
-<a href={`/blog/${slug}`} class="group block rounded-lg border border-border p-6 transition-colors hover:border-accent/30">
+<a href={`/blog/${slug}`} class="group block rounded-lg border border-border p-6 transition-colors hover:border-accent/30" data-category={category}>
   <div class="mb-2 flex flex-wrap items-center gap-2">
     <time datetime={pubDate.toISOString()} class="font-mono text-xs text-text-muted">
       {formattedDate}
     </time>
+    <span class={`rounded-full border px-2 py-0.5 font-mono text-xs ${categoryClass}`}>
+      {categoryLabel}
+    </span>
     {tags?.map((tag) => (
       <span class="rounded-full border border-border px-2 py-0.5 font-mono text-xs text-text-muted">
         {tag}
