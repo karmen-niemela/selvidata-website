@@ -1,0 +1,62 @@
+---
+title: "Analytics & Business Intelligence"
+shortTitle: "Analytics & BI"
+description: "Define the metrics that matter, build the required infrastructure, and set up self-serve reporting — so you're making decisions from data, not guesswork."
+icon: "📊"
+order: 1
+---
+
+import PlotlyChart from '../../components/PlotlyChart.astro';
+
+## What I deliver
+
+- **Metrics framework** — identify the KPIs that actually drive your business, not vanity numbers
+- **Dashboard design & build** — clean, self-serve dashboards your team will use daily
+- **Data pipeline setup** — reliable ETL/ELT pipelines feeding your reporting layer
+- **Tool selection** — help you pick the right BI stack (Metabase, Looker, Superset, etc.) for your stage
+- **Team enablement** — documentation, training, and handoff so your team owns the system
+
+## Example: Monthly active user trends
+
+Interactive dashboards let your team explore data on their own. Here's a simple example of the kind of reporting I build:
+
+<PlotlyChart
+  data={[
+    {
+      x: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+      y: [1200, 1350, 1580, 1720, 2100, 2450, 2680, 3100, 3350, 3800, 4200, 4650],
+      type: 'scatter',
+      mode: 'lines+markers',
+      marker: { color: '#e5c07b', size: 8 },
+      line: { color: '#e5c07b', width: 2 },
+      name: 'MAU',
+    },
+  ]}
+  layout={{
+    title: { text: 'Monthly Active Users', font: { size: 16 } },
+    height: 350,
+    xaxis: { title: 'Month' },
+    yaxis: { title: 'Users' },
+  }}
+/>
+
+## Work examples
+
+### SaaS startup — first analytics stack
+
+A Series A SaaS company had all their data in a production Postgres database with no reporting layer. I set up a lightweight analytics stack: Fivetran for ingestion, dbt for transformations, and Metabase for dashboards. Within 6 weeks, the exec team had daily KPI dashboards and the product team had self-serve access to user behavior data.
+
+### E-commerce — conversion funnel analysis
+
+An e-commerce brand knew their conversion rate was low but couldn't pinpoint where users were dropping off. I built a full funnel analysis pipeline, instrumenting key events and building cohort-based dashboards. The team identified a checkout friction point that, once fixed, improved conversion by 18%.
+
+### Fintech — investor reporting automation
+
+A fintech startup was spending 2 days each month manually compiling investor reports from spreadsheets. I built an automated reporting pipeline that pulled from their data warehouse and generated formatted reports, cutting the process down to a 15-minute review.
+
+## Who this is for
+
+- **Early-stage startups** that need their first dashboard and metrics framework
+- **Growing companies** where spreadsheets aren't cutting it anymore
+- **Teams with data** but no clear way to turn it into decisions
+- **Founders** preparing for fundraising who need solid data storytelling

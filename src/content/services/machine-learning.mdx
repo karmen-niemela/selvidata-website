@@ -1,0 +1,70 @@
+---
+title: "Machine Learning"
+description: "Custom ML models and intelligent automation tailored to your business needs. From predictive analytics to natural language processing, leverage AI to unlock new insights."
+icon: "🤖"
+order: 2
+---
+
+import PlotlyChart from '../../components/PlotlyChart.astro';
+
+## What I deliver
+
+- **Problem scoping** — determine whether ML is the right approach and define success criteria
+- **Model development** — build, train, and validate custom models suited to your data and use case
+- **Pipeline deployment** — production-ready ML pipelines with monitoring and retraining workflows
+- **Integration** — connect model outputs to your existing tools and workflows
+- **Performance tracking** — dashboards and alerts to monitor model accuracy over time
+
+## Example: Churn prediction model performance
+
+Here's an example of tracking a churn prediction model's precision and recall over successive training iterations:
+
+<PlotlyChart
+  data={[
+    {
+      x: ['v1', 'v2', 'v3', 'v4', 'v5', 'v6'],
+      y: [0.72, 0.78, 0.81, 0.84, 0.86, 0.88],
+      type: 'scatter',
+      mode: 'lines+markers',
+      marker: { color: '#e5c07b', size: 8 },
+      line: { color: '#e5c07b', width: 2 },
+      name: 'Precision',
+    },
+    {
+      x: ['v1', 'v2', 'v3', 'v4', 'v5', 'v6'],
+      y: [0.65, 0.70, 0.76, 0.79, 0.82, 0.85],
+      type: 'scatter',
+      mode: 'lines+markers',
+      marker: { color: '#98c379', size: 8 },
+      line: { color: '#98c379', width: 2 },
+      name: 'Recall',
+    },
+  ]}
+  layout={{
+    title: { text: 'Churn Model Performance by Version', font: { size: 16 } },
+    height: 350,
+    xaxis: { title: 'Model Version' },
+    yaxis: { title: 'Score', range: [0.5, 1.0] },
+  }}
+/>
+
+## Work examples
+
+### Subscription platform — churn prediction
+
+A subscription-based platform wanted to proactively retain users at risk of canceling. I built a gradient-boosted churn prediction model using behavioral and billing data. The model flagged at-risk users 30 days in advance with 86% precision, enabling the customer success team to intervene early and reduce monthly churn by 22%.
+
+### E-commerce — product recommendation engine
+
+An online retailer wanted to personalize their shopping experience beyond simple "customers also bought" logic. I developed a collaborative filtering recommendation system that increased average order value by 15% and improved email campaign click-through rates by 2.3x.
+
+### Logistics company — demand forecasting
+
+A logistics company needed to optimize warehouse staffing based on anticipated order volumes. I built a time-series forecasting model (Prophet + custom features) that predicted daily order volumes 2 weeks out with 91% accuracy, reducing both overtime costs and understaffing incidents.
+
+## Who this is for
+
+- **Companies with data** that want to move beyond dashboards into prediction and automation
+- **Product teams** looking to add intelligent features (recommendations, scoring, classification)
+- **Operations teams** that need forecasting to plan resources and inventory
+- **Startups** exploring AI/ML but unsure where to start or what's realistic

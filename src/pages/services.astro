@@ -1,6 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ServiceCard from '../components/ServiceCard.astro';
+import { getCollection } from 'astro:content';
+
+const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
 ---
 
 <BaseLayout title="Services" description="Data analytics, visualization, and strategy consulting for startups and growing businesses.">
@@ -15,22 +18,14 @@ import ServiceCard from '../components/ServiceCard.astro';
     </p>
 
     <div class="grid gap-6 sm:grid-cols-2">
-      <ServiceCard
-        title="Analytics & Business Intelligence"
-        description="Define the metrics that matter, build the required infrastructure, and set up self-serve reporting — so you're making decisions from data, not guesswork."
-      />
-      <ServiceCard
-        title="Data Visualization"
-        description="Interactive charts, monitoring dashboards, and clear visual storytelling using the right dashboard tool for the job. Make your data easy to understand at a glance."
-      />
-      <ServiceCard
-        title="Database Design & Optimization"
-        description="Get your data model right from the start — or fix the one that's slowing you down. Schema design, query optimization, and indexing strategies that scale."
-      />
-      <ServiceCard
-        title="Data Strategy & Architecture"
-        description="Not sure where to start? I'll assess what you have, recommend the right tools, and build a practical data roadmap that fits your stage and budget."
-      />
+      {services.map((service) => (
+        <ServiceCard
+          title={service.data.title}
+          description={service.data.description}
+          icon={service.data.icon}
+          href={`/services/${service.id}`}
+        />
+      ))}
     </div>
 
     <!-- Engagement models -->

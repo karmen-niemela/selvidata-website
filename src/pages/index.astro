@@ -1,6 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ServiceCard from '../components/ServiceCard.astro';
+import { getCollection } from 'astro:content';
+
+const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
 ---
 
 <BaseLayout title="Home">
@@ -36,22 +39,14 @@ import ServiceCard from '../components/ServiceCard.astro';
     <h2 class="mb-2 font-mono text-sm text-accent">What I Do</h2>
     <p class="mb-8 text-2xl font-light">Core services</p>
     <div class="grid gap-4 sm:grid-cols-2">
-      <ServiceCard
-        title="Analytics & BI"
-        description="Metrics, dashboards, and reporting systems your team will actually use."
-      />
-      <ServiceCard
-        title="Data Visualization"
-        description="Interactive charts and dashboards using the right dashboard tool for the job."
-      />
-      <ServiceCard
-        title="Database Design"
-        description="Schema design and query optimization that scales with your growth."
-      />
-      <ServiceCard
-        title="Data Strategy"
-        description="A practical roadmap for your data — the right tools for your stage and budget."
-      />
+      {services.map((service) => (
+        <ServiceCard
+          title={service.data.title}
+          description={service.data.description}
+          icon={service.data.icon}
+          href={`/services/${service.id}`}
+        />
+      ))}
     </div>
     <div class="mt-8">
       <a href="/services" class="font-mono text-sm text-text-muted transition-colors hover:text-accent">
