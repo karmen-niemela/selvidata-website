@@ -8,9 +8,24 @@ interface Props {
 }
 
 const { title, description, icon } = Astro.props;
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": title,
+  "description": description,
+  "provider": {
+    "@type": "Organization",
+    "name": "Selvi Data Consulting",
+    "url": "https://selvidata.com"
+  },
+  "areaServed": "Worldwide",
+  "serviceType": "Data Consulting"
+};
 ---
 
 <BaseLayout title={title} description={description}>
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
   <article class="mx-auto max-w-3xl">
     <nav class="mb-8">
       <a href="/services" class="font-mono text-sm text-text-muted transition-colors hover:text-accent">

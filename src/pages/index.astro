@@ -6,7 +6,7 @@ import { getCollection } from 'astro:content';
 const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
 ---
 
-<BaseLayout title="Home">
+<BaseLayout title="Home" description="Selvi Data Consulting — freelance data science and analytics consulting for startups and growing teams. Data pipelines, dashboards, machine learning, and strategy.">
   <!-- Hero -->
   <section class="py-16 sm:py-24">
     <p class="mb-4 font-mono text-sm text-accent">Selvi Data Consulting</p>
