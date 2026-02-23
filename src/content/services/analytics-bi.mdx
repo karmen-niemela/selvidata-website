@@ -1,62 +1,43 @@
 ---
 title: "Analytics & Business Intelligence"
 shortTitle: "Analytics & BI"
-description: "Define the metrics that matter, build the required infrastructure, and set up self-serve reporting — so you're making decisions from data, not guesswork."
+description: "Define the metrics that matter, build the required infrastructure, and set up self-serve reporting"
 icon: "📊"
 order: 1
 ---
 
-import PlotlyChart from '../../components/PlotlyChart.astro';
-
 ## What I deliver
 
-- **Metrics framework** — identify the KPIs that actually drive your business, not vanity numbers
-- **Dashboard design & build** — clean, self-serve dashboards your team will use daily
-- **Data pipeline setup** — reliable ETL/ELT pipelines feeding your reporting layer
-- **Tool selection** — help you pick the right BI stack (Metabase, Looker, Superset, etc.) for your stage
-- **Team enablement** — documentation, training, and handoff so your team owns the system
+- **Metrics framework** — identify the KPIs that drive your business and define the required data
+- **Dashboard design & build** — clean, automated dashboards
+- **Data pipeline setup** — reliable data processing to feed your reporting layer
+- **Tool selection** — help you pick the right data technology stack for your stage
+- **Team enablement** — documentation, training, and handoff so you and your team owns the system
 
-## Example: Monthly active user trends
+## Project examples
 
-Interactive dashboards let your team explore data on their own. Here's a simple example of the kind of reporting I build:
+### B2B SaaS — unifying product and sales data
 
-<PlotlyChart
-  data={[
-    {
-      x: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-      y: [1200, 1350, 1580, 1720, 2100, 2450, 2680, 3100, 3350, 3800, 4200, 4650],
-      type: 'scatter',
-      mode: 'lines+markers',
-      marker: { color: '#e5c07b', size: 8 },
-      line: { color: '#e5c07b', width: 2 },
-      name: 'MAU',
-    },
-  ]}
-  layout={{
-    title: { text: 'Monthly Active Users', font: { size: 16 } },
-    height: 350,
-    xaxis: { title: 'Month' },
-    yaxis: { title: 'Users' },
-  }}
-/>
+A typical starting point: product usage events in Mixpanel, customer and deal data in Salesforce, and subscription data in Stripe — with no way to connect them. The sales team has no visibility into how prospects are using the trial product, and the product team can't see which features correlate with expansion revenue.
 
-## Work examples
+The project would involve building a unified data model in a warehouse that joins product events to accounts, linked to deal stage and ARR. The outcome is a single view of the customer: which features drive conversion from trial to paid, which usage patterns predict churn, and where high-value accounts are under-utilizing the product.
 
-### SaaS startup — first analytics stack
+### B2B SaaS — first product instrumentation and cohort analysis
 
-A Series A SaaS company had all their data in a production Postgres database with no reporting layer. I set up a lightweight analytics stack: Fivetran for ingestion, dbt for transformations, and Metabase for dashboards. Within 6 weeks, the exec team had daily KPI dashboards and the product team had self-serve access to user behavior data.
+A common early-stage situation: signup numbers come from the auth system, but there's no insight into what happens after — activation rates, feature adoption, or where users drop off in onboarding.
 
-### E-commerce — conversion funnel analysis
-
-An e-commerce brand knew their conversion rate was low but couldn't pinpoint where users were dropping off. I built a full funnel analysis pipeline, instrumenting key events and building cohort-based dashboards. The team identified a checkout friction point that, once fixed, improved conversion by 18%.
-
-### Fintech — investor reporting automation
-
-A fintech startup was spending 2 days each month manually compiling investor reports from spreadsheets. I built an automated reporting pipeline that pulled from their data warehouse and generated formatted reports, cutting the process down to a 15-minute review.
+This type of project starts with designing an event tracking schema and wiring it up across the product, then building cohort-based dashboards that break down signup-to-activation rates by acquisition channel, plan type, or product version. The goal is to give the product and growth teams a reliable foundation for understanding what's actually working.
 
 ## Who this is for
 
-- **Early-stage startups** that need their first dashboard and metrics framework
-- **Growing companies** where spreadsheets aren't cutting it anymore
-- **Teams with data** but no clear way to turn it into decisions
-- **Founders** preparing for fundraising who need solid data storytelling
+- **B2B SaaS teams** whose product, sales, and customer data live in separate tools with no shared view
+- **Early-stage companies** that need their first real product instrumentation and funnel visibility
+- **Growth and product teams** making decisions from incomplete or manually assembled data
+- **Founders** who need credible metrics for investor conversations
+
+## Why Selvi Data
+
+Working with a solo practitioner means no account managers, no handoffs between teams, and no overhead baked into the price. You work directly with the person doing the work, which keeps costs lower and timelines shorter.
+
+I'm not aligned with any particular platform or vendor, so recommendations are based on what's right for your situation, not what generates the largest implementation. And as an independent, I have no incentive to scope a project larger than it needs to be.
+

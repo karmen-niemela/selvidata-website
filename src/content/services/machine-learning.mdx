@@ -5,8 +5,6 @@ icon: "🤖"
 order: 2
 ---
 
-import PlotlyChart from '../../components/PlotlyChart.astro';
-
 ## What I deliver
 
 - **Problem scoping** — determine whether ML is the right approach and define success criteria
@@ -15,56 +13,29 @@ import PlotlyChart from '../../components/PlotlyChart.astro';
 - **Integration** — connect model outputs to your existing tools and workflows
 - **Performance tracking** — dashboards and alerts to monitor model accuracy over time
 
-## Example: Churn prediction model performance
+## Project examples
 
-Here's an example of tracking a churn prediction model's precision and recall over successive training iterations:
+### B2B SaaS — churn prediction
 
-<PlotlyChart
-  data={[
-    {
-      x: ['v1', 'v2', 'v3', 'v4', 'v5', 'v6'],
-      y: [0.72, 0.78, 0.81, 0.84, 0.86, 0.88],
-      type: 'scatter',
-      mode: 'lines+markers',
-      marker: { color: '#e5c07b', size: 8 },
-      line: { color: '#e5c07b', width: 2 },
-      name: 'Precision',
-    },
-    {
-      x: ['v1', 'v2', 'v3', 'v4', 'v5', 'v6'],
-      y: [0.65, 0.70, 0.76, 0.79, 0.82, 0.85],
-      type: 'scatter',
-      mode: 'lines+markers',
-      marker: { color: '#98c379', size: 8 },
-      line: { color: '#98c379', width: 2 },
-      name: 'Recall',
-    },
-  ]}
-  layout={{
-    title: { text: 'Churn Model Performance by Version', font: { size: 16 } },
-    height: 350,
-    xaxis: { title: 'Model Version' },
-    yaxis: { title: 'Score', range: [0.5, 1.0] },
-  }}
-/>
+A recurring challenge for subscription businesses: by the time a customer cancels, it's too late to intervene. The customer success team is reactive, working from anecdotal signals rather than data — and there's no systematic way to prioritize outreach across hundreds of accounts.
 
-## Work examples
+This type of project involves building a churn prediction model trained on behavioral, billing, and engagement data. The model flags at-risk accounts weeks in advance, with outputs surfaced directly in the CRM so the CS team can act without touching the underlying model. The result is a shift from reactive firefighting to proactive retention.
 
-### Subscription platform — churn prediction
+### B2B SaaS — lead scoring and conversion prediction
 
-A subscription-based platform wanted to proactively retain users at risk of canceling. I built a gradient-boosted churn prediction model using behavioral and billing data. The model flagged at-risk users 30 days in advance with 86% precision, enabling the customer success team to intervene early and reduce monthly churn by 22%.
+A common growth-stage problem: the sales team has more inbound leads than capacity to work them, but no reliable way to prioritize. Reps default to recency or company size, which misses high-intent prospects and wastes time on poor fits.
 
-### E-commerce — product recommendation engine
-
-An online retailer wanted to personalize their shopping experience beyond simple "customers also bought" logic. I developed a collaborative filtering recommendation system that increased average order value by 15% and improved email campaign click-through rates by 2.3x.
-
-### Logistics company — demand forecasting
-
-A logistics company needed to optimize warehouse staffing based on anticipated order volumes. I built a time-series forecasting model (Prophet + custom features) that predicted daily order volumes 2 weeks out with 91% accuracy, reducing both overtime costs and understaffing incidents.
+This type of project involves building a lead scoring model that combines product usage signals, firmographic data, and historical conversion patterns. Scores are synced back to the CRM automatically, giving the sales team a ranked queue that reflects actual conversion likelihood rather than gut feel.
 
 ## Who this is for
 
-- **Companies with data** that want to move beyond dashboards into prediction and automation
-- **Product teams** looking to add intelligent features (recommendations, scoring, classification)
-- **Operations teams** that need forecasting to plan resources and inventory
-- **Startups** exploring AI/ML but unsure where to start or what's realistic
+- **B2B SaaS companies** with enough customer data to train a model and a clear retention or growth problem to solve
+- **Product teams** looking to add intelligent features — recommendations, scoring, classification
+- **Sales and customer success teams** that need data-driven prioritization across large account lists
+- **Founders exploring AI/ML** who want an honest assessment of what's realistic for their data and stage
+
+## Why Selvi Data
+
+Working with a solo practitioner means no account managers, no handoffs between teams, and no overhead baked into the price. You work directly with the person doing the work, which keeps costs lower and timelines shorter.
+
+I'm not aligned with any particular platform or vendor, so recommendations are based on what's right for your situation, not what generates the largest implementation. And as an independent, I have no incentive to scope a project larger than it needs to be.

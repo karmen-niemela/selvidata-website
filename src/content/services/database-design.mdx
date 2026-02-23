@@ -6,8 +6,6 @@ icon: "🗄️"
 order: 3
 ---
 
-import PlotlyChart from '../../components/PlotlyChart.astro';
-
 ## What I deliver
 
 - **Schema design** — normalized, well-documented data models that grow with your product
@@ -16,53 +14,29 @@ import PlotlyChart from '../../components/PlotlyChart.astro';
 - **Migration planning** — safe, zero-downtime schema migrations for production databases
 - **Architecture review** — evaluate your current setup and recommend improvements
 
-## Example: Query performance before & after optimization
+## Project examples
 
-A common engagement result — dramatic reduction in query execution times after indexing and query rewrites:
+### B2B SaaS — scaling past growing pains
 
-<PlotlyChart
-  data={[
-    {
-      x: ['User lookup', 'Order history', 'Product search', 'Report generation', 'Dashboard load'],
-      y: [450, 1200, 800, 3500, 2100],
-      type: 'bar',
-      marker: { color: '#e06c75' },
-      name: 'Before (ms)',
-    },
-    {
-      x: ['User lookup', 'Order history', 'Product search', 'Report generation', 'Dashboard load'],
-      y: [12, 85, 35, 320, 150],
-      type: 'bar',
-      marker: { color: '#98c379' },
-      name: 'After (ms)',
-    },
-  ]}
-  layout={{
-    title: { text: 'Query Response Times (ms)', font: { size: 16 } },
-    height: 350,
-    barmode: 'group',
-    xaxis: { title: 'Query Type' },
-    yaxis: { title: 'Response Time (ms)' },
-  }}
-/>
+A pattern that shows up consistently at the growth stage: the database schema was designed for an early product and a small customer base, and it's now causing problems. API timeouts are creeping up, reports are slow to load, and engineering is spending more time on performance fires than new features.
 
-## Work examples
+This type of engagement starts with a database audit — identifying missing indexes, N+1 query patterns, and schema design decisions that made sense at launch but don't hold up under load. The output is a prioritized set of fixes, from quick index additions to query rewrites, with measurable improvements to response times and infrastructure costs.
 
-### SaaS platform — scaling past growing pains
+### B2B SaaS — multi-tenant schema design
 
-A B2B SaaS product was experiencing timeouts as their customer base grew past 10K accounts. I audited their Postgres database, identified missing indexes and N+1 query patterns in their ORM layer, and rewrote critical queries. Average API response time dropped from 1.2s to 90ms.
+Early-stage SaaS products often start with a schema that doesn't properly account for multi-tenancy — data isolation is informal, there's no clean tenant boundary, and adding enterprise features like role-based permissions or audit logging requires reworking the core model.
 
-### Marketplace — data model redesign
-
-A marketplace startup had built their initial schema quickly and it was becoming a bottleneck — circular foreign keys, no audit trail, and denormalized data causing update anomalies. I redesigned the core data model with proper normalization, event sourcing for the transaction layer, and materialized views for read-heavy paths.
-
-### Healthcare startup — compliance-ready database architecture
-
-A health-tech startup needed a database architecture that satisfied HIPAA requirements while remaining performant. I designed a schema with row-level security, encryption at rest, comprehensive audit logging, and a clean separation between PHI and non-sensitive data.
+This type of project involves redesigning the schema with proper tenant isolation, row-level security, and a structure that supports compliance requirements without sacrificing query performance. The goal is a data model that can support enterprise sales without requiring a painful re-architecture later.
 
 ## Who this is for
 
-- **Startups hitting scale issues** — your database was fine at launch but is struggling now
-- **Teams planning a major feature** that needs a solid data model from day one
-- **Companies with slow queries** that are affecting user experience
-- **Anyone migrating databases** (e.g., MySQL to Postgres, monolith to microservices)
+- **B2B SaaS teams hitting scale** — the database was fine at launch but is struggling as the customer base grows
+- **Early-stage products** that want to build the right data model before bad decisions compound
+- **Engineering teams shipping a major feature** that requires a schema change in a live production system
+- **Companies moving upmarket** that need their database architecture to support enterprise compliance requirements
+
+## Why Selvi Data
+
+Working with a solo practitioner means no account managers, no handoffs between teams, and no overhead baked into the price. You work directly with the person doing the work, which keeps costs lower and timelines shorter.
+
+I'm not aligned with any particular platform or vendor, so recommendations are based on what's right for your situation, not what generates the largest implementation. And as an independent, I have no incentive to scope a project larger than it needs to be.
