@@ -17,6 +17,7 @@ const {
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const gaId = import.meta.env.PUBLIC_GA_ID;
 ---
 
 <!doctype html>
@@ -66,12 +67,12 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     </script>
 
     <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9XLY0TFXZC"></script>
-    <script is:inline>
+    {gaId && <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>}
+    <script define:vars={{ gaId }}>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-9XLY0TFXZC');
+      gtag('config', gaId);
     </script>
 
     <!-- Fonts -->

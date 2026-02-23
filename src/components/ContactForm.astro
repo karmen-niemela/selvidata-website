@@ -1,4 +1,6 @@
 ---
+const web3formsKey = import.meta.env.PUBLIC_WEB3FORMS_KEY;
+const recaptchaSiteKey = import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY;
 ---
 
 <form
@@ -6,7 +8,7 @@
   method="POST"
   class="space-y-6"
 >
-  <input type="hidden" name="access_key" value="afe957f2-3a0b-4985-8af8-a6a20085aee2" />
+  <input type="hidden" name="access_key" value={web3formsKey} />
   <!-- Honeypot spam protection -->
   <input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
 
@@ -46,7 +48,7 @@
     ></textarea>
   </div>
 
-  <div class="g-recaptcha" data-sitekey="6Lcdzh8sAAAAAAhqVWp7Z2F8Bew5IF6FimaOxqGM"></div>
+  <div class="g-recaptcha" data-sitekey={recaptchaSiteKey}></div>
 
   <button
     type="submit"
