@@ -62,22 +62,26 @@ const year = new Date().getFullYear();
 </footer>
 
 <script>
-  function updateThemeUI() {
-    const isDark = document.documentElement.classList.contains('dark');
-    document.getElementById('theme-sun')?.classList.toggle('hidden', !isDark);
-    document.getElementById('theme-moon')?.classList.toggle('hidden', isDark);
-    const label = document.getElementById('theme-label');
-    if (label) label.textContent = isDark ? 'Switch to light mode' : 'Switch to dark mode';
+  function setupThemeToggle() {
+    function updateThemeUI() {
+      const isDark = document.documentElement.classList.contains('dark');
+      document.getElementById('theme-sun')?.classList.toggle('hidden', !isDark);
+      document.getElementById('theme-moon')?.classList.toggle('hidden', isDark);
+      const label = document.getElementById('theme-label');
+      if (label) label.textContent = isDark ? 'Switch to light mode' : 'Switch to dark mode';
+    }
+
+    document.getElementById('theme-toggle')?.addEventListener('click', () => {
+      const isDark = document.documentElement.classList.contains('dark');
+      document.documentElement.classList.remove('dark', 'light');
+      const newTheme = isDark ? 'light' : 'dark';
+      document.documentElement.classList.add(newTheme);
+      localStorage.setItem('theme', newTheme);
+      updateThemeUI();
+    });
+
+    updateThemeUI();
   }
 
-  document.getElementById('theme-toggle')?.addEventListener('click', () => {
-    const isDark = document.documentElement.classList.contains('dark');
-    document.documentElement.classList.remove('dark', 'light');
-    const newTheme = isDark ? 'light' : 'dark';
-    document.documentElement.classList.add(newTheme);
-    localStorage.setItem('theme', newTheme);
-    updateThemeUI();
-  });
-
-  updateThemeUI();
+  document.addEventListener('astro:page-load', setupThemeToggle);
 </script>
