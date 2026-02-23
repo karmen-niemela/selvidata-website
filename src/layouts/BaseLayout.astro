@@ -97,6 +97,18 @@ const gaId = import.meta.env.PUBLIC_GA_ID;
       })();
     </script>
 
+    <!-- Theme: re-apply after ViewTransitions swaps the page -->
+    <script>
+      document.addEventListener('astro:after-swap', () => {
+        const stored = localStorage.getItem('theme');
+        const theme = stored === 'dark' || stored === 'light'
+          ? stored
+          : window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.classList.remove('dark', 'light');
+        document.documentElement.classList.add(theme);
+      });
+    </script>
+
     <ViewTransitions />
   </head>
   <body>
