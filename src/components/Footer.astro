@@ -63,12 +63,13 @@ const year = new Date().getFullYear();
 </footer>
 
 <script>
-  document.addEventListener('astro:page-load', () => {
-    document.getElementById('theme-toggle')?.addEventListener('click', () => {
+  document.addEventListener('click', (e) => {
+    if ((e.target as Element).closest('#theme-toggle')) {
       const isDark = document.documentElement.classList.contains('dark');
+      const newTheme = isDark ? 'light' : 'dark';
       document.documentElement.classList.remove('dark', 'light');
-      document.documentElement.classList.add(isDark ? 'light' : 'dark');
-      localStorage.setItem('theme', isDark ? 'light' : 'dark');
-    });
+      document.documentElement.classList.add(newTheme);
+      localStorage.setItem('theme', newTheme);
+    }
   });
 </script>
