@@ -1,15 +1,14 @@
 ---
-// Formspree form — replace YOUR_FORM_ID with actual Formspree form ID
-const formAction = 'https://formspree.io/f/YOUR_FORM_ID';
 ---
 
 <form
-  action={formAction}
+  action="https://api.web3forms.com/submit"
   method="POST"
   class="space-y-6"
 >
+  <input type="hidden" name="access_key" value="afe957f2-3a0b-4985-8af8-a6a20085aee2" />
   <!-- Honeypot spam protection -->
-  <input type="text" name="_gotcha" class="hidden" />
+  <input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
 
   <div>
     <label for="name" class="mb-2 block font-mono text-sm text-text-muted">Name</label>
