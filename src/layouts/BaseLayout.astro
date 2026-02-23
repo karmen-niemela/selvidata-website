@@ -40,13 +40,13 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={`${title} | Selvi Data Consulting`} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={ogImage ?? `${Astro.site}Selvi Data ogimage.png`} />
+    <meta property="og:image" content={ogImage ?? `${Astro.site}og-image.png`} />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={`${title} | Selvi Data Consulting`} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={ogImage ?? `${Astro.site}Selvi Data ogimage.png`} />
+    <meta name="twitter:image" content={ogImage ?? `${Astro.site}og-image.png`} />
 
     <!-- Structured data -->
     <script type="application/ld+json" is:inline>
