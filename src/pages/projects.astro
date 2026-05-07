@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import { getCollection } from 'astro:content';
+
+const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<BaseLayout title="Projects" description="Real project examples — data foundations, analytics systems, and dashboards built for R&D and early-stage teams.">
+  <section class="py-8">
+    <p class="mb-4 font-mono text-sm text-accent">Projects</p>
+    <h1 class="mb-4 text-3xl font-light sm:text-4xl">Selected work</h1>
+    <p class="mb-12 max-w-2xl leading-relaxed text-text-muted">
+      A few examples of problems I've worked on.
+    </p>
+
+    <div class="grid gap-6 sm:grid-cols-2">
+      {projects.map((project) => (
+        <ProjectCard
+          title={project.data.title}
+          summary={project.data.summary}
+          client={project.data.client}
+          href={`/projects/${project.id}`}
+        />
+      ))}
+    </div>
+
+    <div class="mt-16 rounded-lg border border-border bg-bg-secondary p-8 text-center">
+      <h2 class="mb-3 text-xl font-light">Have a similar problem?</h2>
+      <p class="mb-6 text-text-muted">
+        Every company's data situation is different. Tell me where you are and I'll suggest how I can help.
+      </p>
+      <a
+        href="/contact"
+        class="inline-block rounded-lg bg-accent px-6 py-3 font-medium text-bg transition-colors hover:bg-accent-hover"
+      >
+        Get in Touch
+      </a>
+    </div>
+  </section>
+</BaseLayout>

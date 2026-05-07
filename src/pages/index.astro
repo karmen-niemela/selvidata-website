@@ -1,9 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import ServiceCard from '../components/ServiceCard.astro';
+import ProjectCard from '../components/ProjectCard.astro';
 import { getCollection } from 'astro:content';
 
-const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
+const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
 ---
 
 <BaseLayout title="Data Science &amp; Analytics Consulting" description="Selvi Data Consulting — freelance data science and analytics consulting for startups and growing teams. Data pipelines, dashboards, machine learning, and strategy.">
@@ -11,12 +11,13 @@ const services = (await getCollection('services')).sort((a, b) => a.data.order -
   <section class="py-16 sm:py-24">
     <p class="mb-4 font-mono text-sm text-accent">Selvi Data Consulting</p>
     <h1 class="mb-6 text-4xl font-light leading-tight sm:text-5xl lg:text-6xl">
-      Turning data into<br />
-      <span class="text-text-muted">clear decisions.</span>
+      Turning messy data<br />
+      <span class="text-text-muted">into clear decisions.</span>
     </h1>
     <p class="mb-10 max-w-2xl text-lg leading-relaxed text-text-muted">
-      I help startups and growing teams build the right analytics foundation —
-      whether you need a one-off project or a senior data partner on contract.
+      I help early R&D companies make sense of their data without spending a fortune. I work
+      especially well with messy experimental or product data, half-formed problems,
+      and small teams that need a senior data partner.
     </p>
     <div class="flex flex-wrap gap-4">
       <a
@@ -26,31 +27,31 @@ const services = (await getCollection('services')).sort((a, b) => a.data.order -
         Get in Touch
       </a>
       <a
-        href="/services"
+        href="/projects"
         class="rounded-lg border border-border px-6 py-3 text-text-muted transition-colors hover:border-text-muted hover:text-text"
       >
-        View Services
+        View Projects
       </a>
     </div>
   </section>
 
-  <!-- Services preview -->
+  <!-- Projects preview -->
   <section class="py-16">
-    <h2 class="mb-2 font-mono text-sm text-accent">What I Do</h2>
-    <h2 class="mb-8 text-2xl font-light">Core services</h2>
+    <h2 class="mb-2 font-mono text-sm text-accent">Recent Work</h2>
+    <h2 class="mb-8 text-2xl font-light">Selected projects</h2>
     <div class="grid gap-4 sm:grid-cols-2">
-      {services.map((service) => (
-        <ServiceCard
-          title={service.data.title}
-          description={service.data.description}
-          icon={service.data.icon}
-          href={`/services/${service.id}`}
+      {projects.map((project) => (
+        <ProjectCard
+          title={project.data.title}
+          summary={project.data.summary}
+          client={project.data.client}
+          href={`/projects/${project.id}`}
         />
       ))}
     </div>
     <div class="mt-8">
-      <a href="/services" class="font-mono text-sm text-text-muted transition-colors hover:text-accent">
-        All services &rarr;
+      <a href="/projects" class="font-mono text-sm text-text-muted transition-colors hover:text-accent">
+        All projects &rarr;
       </a>
     </div>
   </section>

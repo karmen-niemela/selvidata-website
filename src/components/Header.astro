@@ -1,12 +1,12 @@
 ---
 import { getCollection } from 'astro:content';
 
-const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
+const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
 
 const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/about', label: 'About' },
-  { href: '/services', label: 'Services', children: services.map((s) => ({ href: `/services/${s.id}`, label: s.data.shortTitle || s.data.title })) },
+  { href: '/projects', label: 'Projects', children: projects.map((p) => ({ href: `/projects/${p.id}`, label: p.data.shortTitle || p.data.title })) },
   { href: '/blog', label: 'Blog' },
   { href: '/contact', label: 'Contact' },
 ];
