@@ -7,7 +7,7 @@ const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/about', label: 'About' },
   { href: '/projects', label: 'Projects', children: projects.map((p) => ({ href: `/projects/${p.id}`, label: p.data.shortTitle || p.data.title })) },
-  { href: '/blog', label: 'Blog' },
+  // { href: '/blog', label: 'Blog' }, // hidden while blog has no posts
   { href: '/contact', label: 'Contact' },
 ];
 

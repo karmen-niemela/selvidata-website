@@ -1,7 +1,5 @@
 @import "tailwindcss";
 
-@custom-variant dark (&:where(.dark, .dark *));
-
 @theme {
   --color-bg: var(--theme-bg);
   --color-bg-secondary: var(--theme-bg-secondary);
@@ -15,7 +13,6 @@
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
 }
 
-/* Light mode (default) */
 html {
   --theme-bg: #fafafa;
   --theme-bg-secondary: #ffffff;
@@ -30,32 +27,7 @@ html {
   color: var(--color-text);
   font-family: var(--font-sans);
   scroll-behavior: smooth;
-}
-
-/* Dark mode */
-html.dark {
-  --theme-bg: #0a0a0a;
-  --theme-bg-secondary: #111111;
-  --theme-bg-tertiary: #1a1a1a;
-  --theme-text: #f5f5f5;
-  --theme-text-muted: #a3a3a3;
-  --theme-border: #262626;
-  --theme-accent: #e5c07b;
-  --theme-accent-hover: #d4a843;
-}
-
-/* Respect OS preference when no explicit choice is stored */
-@media (prefers-color-scheme: dark) {
-  html:not(.light) {
-    --theme-bg: #0a0a0a;
-    --theme-bg-secondary: #111111;
-    --theme-bg-tertiary: #1a1a1a;
-    --theme-text: #f5f5f5;
-    --theme-text-muted: #a3a3a3;
-    --theme-border: #262626;
-    --theme-accent: #e5c07b;
-    --theme-accent-hover: #d4a843;
-  }
+  color-scheme: light;
 }
 
 body {

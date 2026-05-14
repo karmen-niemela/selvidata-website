@@ -82,32 +82,6 @@ const gaId = import.meta.env.PUBLIC_GA_ID;
       rel="stylesheet"
     />
 
-    <!-- Theme: prevent FOUC by setting class before render -->
-    <script is:inline>
-      (function() {
-        const stored = localStorage.getItem('theme');
-        if (stored === 'dark' || stored === 'light') {
-          document.documentElement.classList.add(stored);
-        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-          document.documentElement.classList.add('dark');
-        } else {
-          document.documentElement.classList.add('light');
-        }
-      })();
-    </script>
-
-    <!-- Theme: re-apply after ViewTransitions swaps the page -->
-    <script>
-      document.addEventListener('astro:after-swap', () => {
-        const stored = localStorage.getItem('theme');
-        const theme = stored === 'dark' || stored === 'light'
-          ? stored
-          : window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-        document.documentElement.classList.remove('dark', 'light');
-        document.documentElement.classList.add(theme);
-      });
-    </script>
-
     <ViewTransitions />
   </head>
   <body>
