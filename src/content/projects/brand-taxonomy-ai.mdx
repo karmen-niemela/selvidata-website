@@ -1,0 +1,23 @@
+---
+title: "Turning a manual data curation bottleneck into an AI system"
+shortTitle: "Brand taxonomy AI"
+client: "Market research startup"
+summary: "Translated a manual brand curation process into an AI system, unlocking a new commercial offering and an order-of-magnitude speedup."
+order: 2
+---
+
+## The problem
+
+The company collected fine-grained behavioral data (web URLs, app bundle IDs), but their clients wanted to analyze it at a brand level. They needed a hierarchical taxonomy that mapped apps and websites into multilevel company ownership - for example google.com → Google Search → Google → Alphabet, Inc.
+
+## The approach
+
+The project started with vague requirements from the sales team. I worked with sales and engineering to define what success actually looked like: an initial set of manually curated brands, a database schema designed for ongoing maintenance, and an AI system to extend the curation at scale.
+
+I started by manually curating a subset of brands with the team, which surfaced the rules and edge cases the work depended on. I then built a library of well-structured database operations to keep the underlying data safe, and translated my manual curation process into Claude skills and agents that could reproduce it across the full catalog.
+
+## The outcome
+
+- Unlocked a new commercial offering of brand-level analytics
+- Enabled curation of brands at an order of magnitude faster than manual curation, with a smaller price tag
+- Durable infrastructure, including a maintainable taxonomy schema and a constrained set of database operations, enabled extending and correcting the system over time

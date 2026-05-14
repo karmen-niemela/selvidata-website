@@ -6,8 +6,8 @@ const personSchema = {
   "@type": "Person",
   "name": "Karmen Niemela",
   "url": "https://selvidata.com/about",
-  "image": "https://selvidata.com/profile_pic.png",
-  "jobTitle": "Data Consultant",
+  "image": "https://selvidata.com/profile_pic.jpg",
+  "jobTitle": "Data Scientist",
   "worksFor": {
     "@type": "Organization",
     "name": "Selvi Data Consulting",
@@ -15,24 +15,24 @@ const personSchema = {
   },
   "sameAs": [
     "https://www.linkedin.com/in/karmenniemela/",
-    "https://github.com/kldykstra"
+    "https://github.com/karmen-niemela"
   ]
 };
 ---
 
-<BaseLayout title="About" description="About Selvi Data Consulting — a hands-on data professional with a passion for business impact.">
+<BaseLayout title="About" description="Karmen Niemela is a full-stack data scientist working with early-stage R&D and deeptech companies to turn experimental, sensor, and product data into systems and decisions teams can actually use.">
   <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
   <section class="py-8">
     <p class="mb-4 font-mono text-sm text-accent">About</p>
     <h1 class="mb-6 text-3xl font-light sm:text-4xl">About Me</h1>
 
-    <!-- Motto -->
+    <!-- Lead -->
     <p class="mb-10 text-xl font-light leading-snug text-text">
-      I am a hands-on data professional with a passion for business impact.
+      I'm a full-stack data scientist who works with early-stage companies, the kind that generate experimental or product data faster than they can make sense of it, and that need a data partner more than a vendor.
     </p>
 
     <!-- Credentials -->
-    <ul class="mb-12 grid gap-3 sm:grid-cols-2">
+    <ul class="mb-12 grid gap-3 mx-8 sm:mx-20 sm:grid-cols-2">
       <li class="flex items-center gap-3 text-text-muted">
         <span class="text-accent">&#10003;</span> M.Sc. Machine Learning
       </li>
@@ -50,24 +50,28 @@ const personSchema = {
     <!-- Bio with photo -->
     <div class="text-text-muted leading-relaxed">
       <img
-        src="/profile_pic.png"
+        src="/profile_pic.jpg"
         alt="Karmen Niemela"
-        class="float-left mr-8 mb-4 w-48 object-cover object-top sm:w-56"
+        width="1500"
+        height="1500"
+        class="float-left mr-8 mb-4 w-48 sm:w-56"
       />
       <p class="mb-5">
-        Through a combination of strong technical skills (Python, SQL, machine learning, experimentation, data engineering) and stakeholder communication, I specialize in uncovering insights from complex datasets and turning them into actionable strategies.
+        Most recently, I spent two and a half years at a battery materials startup, where I helped guide the data science work, supported the team, and built models that connected manufacturing parameters to product performance. Before that, I worked across product analytics at Adobe, data quality work at a healthcare data company, and consulting projects for Fortune 500 clients at a market research startup. The thread running through all of it: getting messy data into a usable state, building things the rest of the company actually uses, and translating between technical specialists and the people making decisions.
       </p>
 
       <p class="mb-5">
-        I've worked with companies ranging from startups to global enterprises like Adobe, leading projects across product analytics, machine learning, and process optimization. Whether it's identifying the drivers of product performance, building models to accelerate R&D, or delivering concise dashboards and A/B test results, I focus on business impact — not just code.
+        A few things that tend to matter to the companies I work with:
       </p>
 
-      <p class="mb-5">
-        I'm available for freelance or contract work and can jump in to lead standalone projects, extend your team's capacity, or advise on your data strategy.
-      </p>
+      <ul class="mb-5 space-y-3 pl-5 list-disc marker:text-accent">
+        <li><span class="text-text">I bridge engineering and business.</span> I've worked inside a deeptech company, so I'm at home with noisy data, lab experiments, and the engineers and scientists making sense of them. I'm also used to taking what the data shows and explaining it clearly to the people making decisions and running the business, without losing nuance along the way.</li>
+        <li><span class="text-text">Strong coding background.</span> A decade-plus with Python, which means I can work effectively when the data is messy and the questions are still half-formed. I don't need a tidy spec to start making progress.</li>
+        <li><span class="text-text">Practical over fancy.</span> Most of what I do isn't cutting-edge modeling. It's getting the data into a state where straightforward analyses actually answer the question, and knowing when something needs more than that.</li>
+      </ul>
 
       <p>
-        Let's talk if you're looking for a reliable, senior-level data scientist who can hit the ground running.
+        I'm available for freelance and contract work, remote worldwide. Engagements typically look like project work on a specific data problem, embedded consulting (joining your team for a defined period as an extra pair of experienced hands), or helping set up early data infrastructure for companies that don't have it yet.
       </p>
     </div>
 
@@ -85,7 +89,7 @@ const personSchema = {
         LinkedIn
       </a>
       <a
-        href="https://github.com/kldykstra"
+        href="https://github.com/karmen-niemela"
         target="_blank"
         rel="noopener noreferrer"
         class="flex items-center gap-2 rounded-lg border border-border px-4 py-2 text-sm text-text-muted transition-colors hover:border-text-muted hover:text-text"
